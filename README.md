@@ -39,7 +39,42 @@ Proyecto_F1Tenth_Parte2/
 └── README.md          
 ```
 
-### Paso 3: Compilar el paquete
+### Paso 2: Mover los archivos de la carpeta F1Tenth-Repository
+
+En una terminal nueva ejecutar:
+```bash
+rm -rf ~/F1Tenth-Repository/src && mv ~/Proyecto_F1Tenth_Parte2/F1Tenth-Repository/src ~/F1Tenth-Repository/
+```
+en la siguiente direccion abrir el archivo `sim.yaml` y buscar la linea:
+'/home/your_user/F1Tenth-Repository/src/f1tenth_gym_ros/maps/Oschersleben_obs_map'
+y cambiar el `your_user` por su usurario de Ubuntu
+
+```bash
+cd F1Tenth-Repository/src/f1tenth_gym_ros/config/
+```
+⚠️ Nota : si tiene el visual studio code utilizar:
+```bash
+code .
+```
+para que se abra el archivo y poner su usuario en el archivo
+
+Luego hacer lo siguiente:
+```bash
+cd $HOME
+cd F1Tenth-Repository/
+colcon build
+```
+
+y por ultimo utilice lo siguiente:
+```bash
+cd ~/F1Tenth-Repository
+colcon build --packages-select f1tenth_gym_ros --symlink-install
+source install/setup.bash
+```
+
+https://github.com/user-attachments/assets/9d981a5d-306f-44e0-b8f7-ae25187609e4
+
+### Paso 3: Compilar el paquete del Repositorio Proyecto_F1Tenth_Parte2
 
 ```bash
 cd Proyecto_F1Tenth_Parte2/
