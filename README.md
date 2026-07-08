@@ -16,7 +16,10 @@ https://github.com/user-attachments/assets/92f9814c-1da2-4cc1-bae1-4db4c41db77b
 Estructura esperada del paquete:
 
 ```
-Proyecto_F1Tenth_Parte2/   
+Proyecto_F1Tenth_Parte2/
+├── F1Tenth-Repository/
+│   └── src/
+│       ├── */ (archivos del repositorio)
 ├── src/                                                      
 │   └── f1tenth_controller/                                   
 │       ├── f1tenth_controller/
@@ -35,6 +38,10 @@ Proyecto_F1Tenth_Parte2/
 │       ├── setup.cfg
 │       └── setup.py
 ├── videos/
+│    ├── Clonacion del repositorio.mp4
+│    ├── Compilacion del repositorio.mp4
+│    ├── Ejecucion de los nodos.mp4
+│    ├── Ejecucion del simulador.mp4
 │    └── Ejecucion_Proyecto.mp4                                             
 └── README.md          
 ```
@@ -129,3 +136,46 @@ ros2 run f1tenth_controller opponent2_follow_gap
 https://github.com/user-attachments/assets/827e14d1-44a4-4f2c-9c74-1294e4e3f02d
 
 ## Parte 2: Ejecucion del proyecto
+
+
+
+
+## Parte 3: Expliacion del Proyecto 
+
+# Paquete f1tenth_controller
+
+# 1. creacion de nuevos nodos
+
+Se crearon dos nuevos nodos basados en el algoritmo Follow the Gap:
+* opponent1_follow_gap.py: Controla el primer vehículo oponente. (mismo 
+* opponent2_follow_gap.py: Controla el segundo vehículo oponente.
+
+# 2. Tópicos ROS 2 utilizados 
+* Vehículo Principal (ego): /scan, /drive
+* Oponente 1: /opp_scan, /opp_drive
+* Oponente 2: /opp_scan_2, /opp_drive_2
+
+# 3. Velocidades utilizadas
+* Principal: Máxima velocidad de 4.0 m/s.
+* Oponente 1: Máxima velocidad de 3.0 m/s.
+* Oponente 2: Máxima velocidad de 3.0 m/s.
+
+# Modificaciones en el simulador 
+
+# 1. Modificación del archivo sim.yaml:
+* Cambio de num_agent: 1 a num_agent: 3.
+
+# 2. Modificación del archivo gym_bridge.py del simulador para:
+* Permitir num_agents = 3 (originalmente solo aceptaba 1 o 2).
+* Publicar las transformaciones (TF) del tercer vehículo en RViz.
+
+# 3. Modificación del archivo de lanzamiento gym_bridge_launch.py para:
+* Agregar un tercer robot_state_publisher para el oponente 2.
+* Cargar el modelo URDF opp2_racecar.xacro.
+
+# 4. Creacion de un nuevo modelo URDF
+* Creación del archivo opp2_racecar.xacro para representar al tercer vehículo en RViz.
+
+# 5. Actualización de la configuración de RViz
+* Agregar un tercer panel de visualización (OPP2-RobotModel) que se suscribe al tópico /opp2_robot_description.
+
