@@ -137,8 +137,9 @@ https://github.com/user-attachments/assets/827e14d1-44a4-4f2c-9c74-1294e4e3f02d
 
 ## Parte 2: Ejecucion del proyecto
 
+⚠️ Nota : El archivo es muy grande por lo que no se puede visualizar por medio de github, por lo tanto ver el video Ejecucion_Proyecto.mp4 que se encuentra en la carpeta videos
 
-
+https://github.com/Steevens98/Proyecto_F1Tenth_Parte2/blob/main/videos/Ejecucion_Proyecto.mp4
 
 ## Parte 3: Expliacion del Proyecto 
 
